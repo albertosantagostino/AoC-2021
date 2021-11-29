@@ -1,0 +1,1 @@
+Folder to store puzzle inputs (automatically downloaded, see [`config/README.md`](config/README.md) for more details)

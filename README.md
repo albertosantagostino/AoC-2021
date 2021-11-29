@@ -2,16 +2,42 @@
 
 <div align="center">
 
-| Day                                            | 1                     | 2                     | Solved on time |
-| ---------------------------------------------- | :-------------------: | :-------------------: | :------------: |
-| **[01](https://adventofcode.com/2021/day/1)**  |                       |                       |                |
+| Day                                            | 1                     | 2                     | ⏲️  |
+| ---------------------------------------------- | :-------------------: | :-------------------: | :-: |
+| **[01](https://adventofcode.com/2021/day/1)**  |                       |                       |     |
 
 </div>
- 
-"Solved on time" column: 🟢 = same day, 🟡 = within 3 days, 🟠 = within 1 week, ⚫ = more than 1 week
 
-## Dependencies / How to run
+🟢 < 1 day | 🟡 1÷7 days | 🟠 = 7÷30 days | 💤 > 30 days
 
-`Python 3.9` is used. `poetry` manages libraries/packages
+## How to run
 
-To setup and run a virtualenv, run from the root folder `poetry install` and `source .venv/bin/activate`
+`Python 3.8` and `poetry` required. From the root folder:
+
+````bash
+# Prepare the virtualenv (will be placed at .venv/), only needed the first time
+poetry install
+# Activate the virtualenv
+source .venv/bin/activate
+# Run the script for day 01
+python3.8 src/day01.py
+````
+
+The script `src/day00_template.py` can be used as a template, simply copy and rename it `day[DD].py`
+
+Scripts are configured to automatically download puzzle inputs. To setup this, continue to the section below
+
+### Setup (automatic input download)
+
+To get and set your credentials: login into [AoC](https://adventofcode.com/) and open the Web Developer Tools (`CTRL+SHIFT+I`) in your browser. Go to the Storage tab (or Application/Storage in Chrome) and copy the value of your `session` cookie. Paste it into the `aoc_cookie` entry in the configuration file (`config.json`)
+
+Notice that in the same file you can also set the year
+
+## Happy holidays playlist! 🎁
+
+["Ding Dong Merrily on High"](https://www.youtube.com/watch?v=zJbRURK3zWo) by *Tom Bombadil*
+
+["Here codes Santa Claus"](https://www.youtube.com/watch?v=ysxlUmLOttQ) by *Gene Poetry*
+
+["It's the Most Wonderful Thyme of the Year [at Scarborough Fair]"](https://www.youtube.com/watch?v=-BakWVXHSug) by *Simon & Garfunkel*
+
