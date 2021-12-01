@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from common.meta_utils import get_puzzle_data
+from common.meta_utils import get_puzzle_input
 
 
 def part1(puzzle_input):
@@ -29,7 +29,6 @@ def reduce_sum_sliding_window(values, width):
 
 
 if __name__ == "__main__":
-    puzzle_input = get_puzzle_data(filename=__file__)
-    puzzle_input = [int(entry) for entry in puzzle_input]
+    puzzle_input = get_puzzle_input(filename=__file__, cast=int)
     print(f"Part 1 solution: {part1(puzzle_input)}")
     print(f"Part 2 solution: {part2(puzzle_input)}")
