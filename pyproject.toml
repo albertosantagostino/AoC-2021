@@ -1,12 +1,13 @@
 [tool.poetry]
 name = "aoc-2021"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "Advent of Code 2021 solutions"
+authors = ["Alberto Santagostino"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "3.8"
 requests = "^2.26.0"
+numpy = "^1.21.4"
 
 [tool.poetry.dev-dependencies]
 ipdb = "^0.13.9"

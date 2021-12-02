@@ -1,64 +1,45 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import ipdb
+from numpy import array
 
 from common.meta_utils import get_puzzle_input
 
-
-# Position is expressed as [horizontal, depth] or as [x, -z]
-class SubmarinePosition():
-    def __init__(self, x, z):
-        self.x = x
-        self.z = z
-
-    def __repr__(self):
-        return f"SubmarinePosition({self.x}, {self.z})"
-
-    def __str__(self):
-        return SubmarinePosition(self.x, self.z)
-
-    def __add__(self, other):
-        return SubmarinePosition(self.x + other.x, self.z + other.z)
-
-    def __mul__(self, other):
-        if isinstance(other, int):
-            return SubmarinePosition(self.x * other, self.z * other)
-
-
-SUBMARINE_COMMANDS_V1 = {
-    'forward': SubmarinePosition(1, 0),
-    'down': SubmarinePosition(0, 1),
-    'up': SubmarinePosition(0, -1)
+SUBMARINE_COMMANDS = {
+    'forward': array([1, 0]),
+    'down': array([0, 1]),
+    'up': array([0, -1])
 }
 
 
 def part1(puzzle_input):
-    position = SubmarinePosition(0, 0)
+    position = array([0, 0])
     for command in puzzle_input:
         instruction, value = command.split()
         value = int(value)
         try:
-            action = SUBMARINE_COMMANDS_V1[instruction]
+            action = SUBMARINE_COMMANDS[instruction]
         except KeyError:
             raise KeyError(f"Unknown command ({instruction})")
         position = position + (action * value)
-    return position.x * position.z
+    return position[0] * position[1]
 
 
 def part2(puzzle_input):
-    position = SubmarinePosition(0, 0)
+    position = array([0, 0])
     aim = 0
     for command in puzzle_input:
         instruction, value = command.split()
         value = int(value)
-        if instruction == 'down':
-            aim = aim + value
-        elif instruction == 'up':
-            aim = aim - value
-        elif instruction == 'forward':
-            position = position + SubmarinePosition(value, value * aim)
-    return position.x * position.z
+        try:
+            action = SUBMARINE_COMMANDS[instruction]
+        except KeyError:
+            raise KeyError(f"Unknown command ({instruction})")
+        if instruction != 'forward':
+            aim = aim + (action * value)[1]
+        else:
+            position = position + array([value, value * aim])
+    return position[0] * position[1]
 
 
 if __name__ == "__main__":
