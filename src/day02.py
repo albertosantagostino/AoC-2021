@@ -16,12 +16,8 @@ def part1(puzzle_input):
     position = array([0, 0])
     for command in puzzle_input:
         instruction, value = command.split()
-        value = int(value)
-        try:
-            action = SUBMARINE_COMMANDS[instruction]
-        except KeyError:
-            raise KeyError(f"Unknown command ({instruction})")
-        position = position + (action * value)
+        action = SUBMARINE_COMMANDS[instruction]
+        position = position + (action * int(value))
     return position[0] * position[1]
 
 
@@ -31,12 +27,9 @@ def part2(puzzle_input):
     for command in puzzle_input:
         instruction, value = command.split()
         value = int(value)
-        try:
-            action = SUBMARINE_COMMANDS[instruction]
-        except KeyError:
-            raise KeyError(f"Unknown command ({instruction})")
+        action = SUBMARINE_COMMANDS[instruction]
         if instruction != 'forward':
-            aim = aim + (action * value)[1]
+            aim = aim + (action * int(value))[1]
         else:
             position = position + array([value, value * aim])
     return position[0] * position[1]
