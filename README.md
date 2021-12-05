@@ -8,6 +8,7 @@
 | **[02](https://adventofcode.com/2021/day/2)**  | ⭐  | ⭐  | [day02](src/day02.py) | 🟢🟢 |
 | **[03](https://adventofcode.com/2021/day/3)**  | ⭐  | ⭐  | [day03](src/day03.py) | 🟢🟢 |
 | **[04](https://adventofcode.com/2021/day/4)**  | ⭐  | ⭐  | [day04](src/day04.py) | 🟢🟢 |
+| **[05](https://adventofcode.com/2021/day/5)**  | ⭐  |     | [day05](src/day05.py) | 🟢   |
 
 <sub>🟢 < 1 day | 🟡 1÷7 days | 🟠 = 7÷30 days | 💤 > 30 days</sub>
 
