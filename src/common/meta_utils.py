@@ -18,7 +18,7 @@ def download_puzzle_data(year, day):
                        cookies={"session": config['aoc_cookie']})
     res.raise_for_status()
     # Store locally under data/
-    with open(root_path.joinpath('data', f'day{day}_input.txt'), 'w') as fp:
+    with open(root_path.joinpath('data', f'day{day:02}_input.txt'), 'w') as fp:
         fp.write(res.text)
 
 
@@ -30,7 +30,7 @@ def get_puzzle_input(filename=None, day=None, cast=None):
     if not day:
         raise ValueError(
             "get_puzzle_data() must be called with either filename or day")
-    puzzle_data_file = root_path.joinpath('data', f'day{day}_input.txt')
+    puzzle_data_file = root_path.joinpath('data', f'day{day:02}_input.txt')
     # Download puzzle data if not already downloaded
     if not puzzle_data_file.exists():
         download_puzzle_data(year=config['year'], day=day)
