@@ -3,20 +3,12 @@
 
 import numpy as np
 
-from copy import deepcopy
 from functools import reduce
 
 from common.meta_utils import get_puzzle_input
 
 
-def part1(extracted_numbers, boards):
-    while extracted_numbers:
-        number = extracted_numbers.pop(0)
-        if res := mark_number_and_check(number, boards):
-            return list(res.values())[0]
-
-
-def part2(extracted_numbers, boards):
+def solve(extracted_numbers, boards):
     n_boards = list(range(0, len(boards)))
     scores = []
     while n_boards and extracted_numbers:
@@ -27,7 +19,7 @@ def part2(extracted_numbers, boards):
                     n_boards.remove(kk)
                     scores.append(vv)
                     del boards[kk]
-    return scores[-1]
+    return scores[0], scores[-1]
 
 
 def mark_number_and_check(extracted_number, boards):
@@ -43,7 +35,7 @@ def mark_number_and_check(extracted_number, boards):
 
 
 def calculate_board_sum(board):
-    new_board = deepcopy(board)
+    new_board = board
     new_board[new_board < 0] = 0
     return np.sum(new_board)
 
@@ -62,9 +54,6 @@ def parse_input(puzzle_input):
 if __name__ == "__main__":
     puzzle_input = get_puzzle_input(filename=__file__)
     extracted_numbers, boards = parse_input(puzzle_input)
-    print(
-        f"Part 1 solution: {part1(deepcopy(extracted_numbers), deepcopy(boards))}"
-    )
-    print(
-        f"Part 2 solution: {part2(deepcopy(extracted_numbers), deepcopy(boards))}"
-    )
+    res1, res2 = solve(extracted_numbers, boards)
+    print(f"Part 1 solution: {res1}")
+    print(f"Part 2 solution: {res2}")
