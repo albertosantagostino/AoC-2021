@@ -22,20 +22,23 @@ def download_puzzle_data(year, day):
         fp.write(res.text)
 
 
-def get_puzzle_input(filename=None, day=None, cast=None):
+def get_puzzle_input(filename=None, day=None, cast=None, oneline=False):
     """Retrieve puzzle input locally (if already downloaded) or invokes download_puzzle_data()"""
-    # Get day from script filename if requested
+    # Get day number from script filename
     if filename:
         day = int(filename.split('/')[-1][3:5])
     if not day:
         raise ValueError(
             "get_puzzle_data() must be called with either filename or day")
     puzzle_data_file = root_path.joinpath('data', f'day{day:02}_input.txt')
-    # Download puzzle data if not already downloaded
+    # Download puzzle data (if needed)
     if not puzzle_data_file.exists():
         download_puzzle_data(year=config['year'], day=day)
     puzzle_input = puzzle_data_file.open().read().splitlines()
-    # Check if cast to specific type before returning puzzle_input
+    # Handle all input on one line
+    if oneline:
+        puzzle_input = [entry for entry in puzzle_input[0].split(',')]
+    # Cast to specific type
     if cast:
         return [cast(entry) for entry in puzzle_input]
     return puzzle_input

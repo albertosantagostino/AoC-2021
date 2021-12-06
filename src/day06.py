@@ -26,7 +26,6 @@ def step(fish):
 
 
 if __name__ == "__main__":
-    puzzle_input = get_puzzle_input(filename=__file__)
-    puzzle_input = [int(entry) for entry in puzzle_input[0].split(',')]
+    puzzle_input = get_puzzle_input(filename=__file__, cast=int, oneline=True)
     print(f"Part 1 solution: {solve(puzzle_input, days=80)}")
     print(f"Part 2 solution: {solve(puzzle_input, days=256)}")
