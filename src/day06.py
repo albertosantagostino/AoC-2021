@@ -7,7 +7,7 @@ from common.meta_utils import get_puzzle_input
 def solve(puzzle_input, days):
     fish = {kk: 0 for kk in range(0, 9)}
     for fish_age in puzzle_input:
-        fish[fish_age] = fish[fish_age] + 1
+        fish[fish_age] += 1
     for i in range(0, days):
         step(fish)
     return sum(fish.values())
@@ -19,10 +19,10 @@ def step(fish):
         if kk == 0 and fish[kk]:
             new_spawns = fish[kk]
         elif fish[kk]:
-            fish[kk - 1] = fish[kk - 1] + fish[kk]
+            fish[kk - 1] += fish[kk]
         fish[kk] = 0
-    fish[8] = fish[8] + new_spawns
-    fish[6] = fish[6] + new_spawns
+    fish[8] += new_spawns
+    fish[6] += new_spawns
 
 
 if __name__ == "__main__":

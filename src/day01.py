@@ -17,7 +17,7 @@ def count_increments(values):
     count = 0
     for idx in range(0, len(values) - 1):
         if values[idx + 1] - values[idx] > 0:
-            count = count + 1
+            count += 1
     return count
 
 

@@ -11,9 +11,9 @@ def part1(puzzle_input):
         for number in puzzle_input:
             count = count + int(number[bit])
         if count > len(puzzle_input) / 2:
-            gamma_rate = gamma_rate + '1'
+            gamma_rate += '1'
         else:
-            gamma_rate = gamma_rate + '0'
+            gamma_rate += '0'
     epsilon_rate = ''.join('0' if idx == '1' else '1' for idx in gamma_rate)
     return int(gamma_rate, 2) * int(epsilon_rate, 2)
 

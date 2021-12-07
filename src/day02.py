@@ -19,12 +19,12 @@ def solve(puzzle_input, consider_aim=False):
         instruction, value = command.split()
         action = SUBMARINE_COMMANDS[instruction]
         if not consider_aim:
-            position = position + (action * int(value))
+            position += (action * int(value))
         else:
             if instruction != 'forward':
-                aim = aim + (action * int(value))[1]
+                aim += (action * int(value))[1]
             else:
-                position = position + array([int(value), int(value) * aim])
+                position += array([int(value), int(value) * aim])
     return position[0] * position[1]
 
 
