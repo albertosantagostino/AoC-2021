@@ -11,6 +11,7 @@
 | [05](https://adventofcode.com/2021/day/5)  | ⭐  | ⭐  | **[day05.py](src/day05.py)** | 🟢🟡 |
 | [06](https://adventofcode.com/2021/day/6)  | ⭐  | ⭐  | **[day06.py](src/day06.py)** | 🟢🟢 |
 | [07](https://adventofcode.com/2021/day/7)  | ⭐  | ⭐  | **[day07.py](src/day07.py)** | 🟢🟢 |
+| [08](https://adventofcode.com/2021/day/8)  | ⭐  |     | **[day08.py](src/day08.py)** | 🟢   |
 
 <sub>🟢 < 1 day | 🟡 1÷7 days | 🟠 = 7÷30 days | 💤 > 30 days</sub>
 
@@ -35,9 +36,9 @@ Scripts are configured to automatically download puzzle inputs. To setup this, c
 
 ### Setup (automatic input download)
 
-To get and set your credentials: login into [AoC](https://adventofcode.com/) and open the Web Developer Tools (`CTRL+SHIFT+I`) in your browser. Go to the Storage tab (or Application/Storage in Chrome) and copy the value of your `session` cookie. Paste it into the `aoc_cookie` entry in the configuration file (`config.json`)
+To get and set your credentials: login into [AoC](https://adventofcode.com/) and open the Web Developer Tools (`CTRL+SHIFT+I`) in your browser. Go to the Storage tab (or Application/Storage in Chrome) and copy the value of your `session` cookie. Paste it into the `aoc_cookie` entry in the configuration file (`config.json`). Notice that in the same file you can also set the year to use this repository for a different year
 
-Notice that in the same file you can also set the year
+**Important**: do not commit the `config.json` file as it contains your personal cookie. Run `git update-index --assume-unchanged config.json` to prevent git from tracking the file
 
 ## Happy holidays playlist! 🎁
 
